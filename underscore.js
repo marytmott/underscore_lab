@@ -13,9 +13,15 @@ var _ = {
 					return averageOfNums;
 				},
 	// contains - returns true is a given value is present in an array
-	contains: function(arr) {
-
-	},
+	contains: 	function(arr, num) {
+					for (var i = 0; i < arr.length; i++) {
+						if (arr[i] === num) {
+							return true;
+						} else {
+							continue;
+						}
+					} return false;
+				},
 	//first - returns the first element in an array
 	first: 	function(arr){
 				return arr[0];
@@ -26,9 +32,9 @@ var _ = {
 				return arr[lastElementIndexNum];
 			},
 	//max - returns the maximum value in an array
-	max: function() {
+	max: 	function() {
 
-	},
+			},
 	//min - returns the minimum value in an array
 	min: function() {
 
@@ -64,7 +70,7 @@ console.log("_.average test: " + _.average([4,6,1,1]));
 
 
 // contains - returns true is a given value is present in an array
-_.contains([7,55,99], 99);
+console.log('_.contains test: ' + _.contains([7,55,99], 99));
 //=> true
 
 
@@ -80,7 +86,7 @@ console.log("_.last test: " + _.last([5, 4, 3, 2, 1]));
 
 //max - returns the maximum value in an array
 var numbers = [10, 5, 100, 2, 1000];
-_.max(numbers);
+console.log("_.max test: " + _.max(numbers));
 //=> 1000
 
 
