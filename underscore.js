@@ -10,7 +10,6 @@ var _ = {
 					}
 
 					averageOfNums = sum / numbersInArray;
-					console.log("_average test: " + averageOfNums);
 					return averageOfNums;
 				},
 	// contains - returns true is a given value is present in an array
@@ -18,9 +17,9 @@ var _ = {
 
 	},
 	//first - returns the first element in an array
-	first: function(arr){
-
-	},
+	first: 	function(arr){
+				return arr[0];
+			},
 	//last - returns the last element in an array
 	last: function() {
 
@@ -58,7 +57,7 @@ var _ = {
 };
 
 //average - returns the average value in a given array
-_.average([4,6,1,1])
+console.log("_.average test: " + _.average([4,6,1,1]));
 // => 3
 
 
@@ -70,7 +69,7 @@ _.contains([7,55,99], 99);
 
 
 //first - returns the first element in an array
-_.first([5, 4, 3, 2, 1]);
+console.log("_.first test: " + _.first([5, 4, 3, 2, 1]));
 //=> 5
 
 
