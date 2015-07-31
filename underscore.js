@@ -21,9 +21,10 @@ var _ = {
 				return arr[0];
 			},
 	//last - returns the last element in an array
-	last: function() {
-
-	},
+	last: 	function(arr) {
+				var lastElementIndexNum = arr.length - 1;
+				return arr[lastElementIndexNum];
+			},
 	//max - returns the maximum value in an array
 	max: function() {
 
@@ -74,7 +75,7 @@ console.log("_.first test: " + _.first([5, 4, 3, 2, 1]));
 
 
 //last - returns the last element in an array
-_.last([5, 4, 3, 2, 1]);
+console.log("_.last test: " + _.last([5, 4, 3, 2, 1]));
 //=> 1
 
 //max - returns the maximum value in an array
