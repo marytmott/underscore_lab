@@ -74,7 +74,7 @@ var _ = {
 
 	},
 	//indexOf - Returns the index at which value can be found in the array, or -1 if value is not present in the array.
-	indexOf: 	function(arr, num) {
+	indexOf: 	function indexOf(arr, num) {
 					var foundNum = 0;
 
 					for (var i = 0; i < arr.length; i++) {
@@ -83,6 +83,10 @@ var _ = {
 						} else {
 							continue;
 						}
+					}
+
+					if (foundNum === 0) {
+						return -1;
 					}
 				},
 	//pluck - extracts a list of property values and returns them in an array.
