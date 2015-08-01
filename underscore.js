@@ -33,9 +33,9 @@ var _ = {
 			},
 	//max - returns the maximum value in an array
 	max: 	function(arr) {
-				var maxNum = 0;
+				var maxNum = arr[0];
 
-				for (var i = 0; i < arr.length; i++) {
+				for (var i = 1; i < arr.length; i++) {
 					if (arr[i] > maxNum) {
 						maxNum = arr[i];
 					} else {
@@ -45,9 +45,18 @@ var _ = {
 				return maxNum;
 			},
 	//min - returns the minimum value in an array
-	min: 	function() {
+	min: 	function(arr) {
+				var minNum = arr[0];
 
-	},
+				for (var i = 1; i < arr.length; i++) {
+					if (arr[i] < minNum) {
+						minNum = arr[i];
+					} else {
+						continue;
+					}
+				}
+				return minNum;
+			},
 	//shuffle - Returns a shuffled copy of the list, using a version of the Fisher-Yates shuffle. Don't worry 
 	//about implementing that exact shuffle alogrithm. Start by creating your own simple shuffle.
 	shuffle: 	function() {
@@ -101,7 +110,7 @@ console.log("_.max test: " + _.max(numbers));
 
 //min - returns the minimum value in an array
 var numbers = [10, 5, 100, 2, 1000];
-_.min(numbers);
+console.log('_.min test: ' + _.min(numbers));
 //=> 2
 
 
