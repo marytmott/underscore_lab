@@ -32,33 +32,42 @@ var _ = {
 				return arr[lastElementIndexNum];
 			},
 	//max - returns the maximum value in an array
-	max: 	function() {
+	max: 	function(arr) {
+				var maxNum = 0;
 
+				for (var i = 0; i < arr.length; i++) {
+					if (arr[i] > maxNum) {
+						maxNum = arr[i];
+					} else {
+						continue;
+					}
+				}
+				return maxNum;
 			},
 	//min - returns the minimum value in an array
-	min: function() {
+	min: 	function() {
 
 	},
 	//shuffle - Returns a shuffled copy of the list, using a version of the Fisher-Yates shuffle. Don't worry 
 	//about implementing that exact shuffle alogrithm. Start by creating your own simple shuffle.
-	shuffle: function() {
+	shuffle: 	function() {
 
 	},
 	//sample - Produce a random sample from the list. Pass a number to return n random elements from the list. Otherwise 
 	//a single random item will be returned.
-	sample: function() {
+	sample: 	function() {
 
 	},
 	//difference - returns the values from array that are not present in the other array.
-	difference: function() {
+	difference: 	function() {
 
 	},
 	//indexOf - Returns the index at which value can be found in the array, or -1 if value is not present in the array.
-	indexOf: function() {
+	indexOf: 	function() {
 
 	},
 	//pluck - extracts a list of property values and returns them in an array.
-	pluck: function() {
+	pluck: 	function() {
 
 	}
 };
