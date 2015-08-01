@@ -74,9 +74,17 @@ var _ = {
 
 	},
 	//indexOf - Returns the index at which value can be found in the array, or -1 if value is not present in the array.
-	indexOf: 	function() {
+	indexOf: 	function(arr, num) {
+					var foundNum = 0;
 
-	},
+					for (var i = 0; i < arr.length; i++) {
+						if (arr[i] === num) {
+							return i;
+						} else {
+							continue;
+						}
+					}
+				},
 	//pluck - extracts a list of property values and returns them in an array.
 	pluck: 	function() {
 
@@ -136,7 +144,7 @@ _.difference([1, 2, 3, 4, 5], [5, 2, 10]);
 
 
 //indexOf - Returns the index at which value can be found in the array, or -1 if value is not present in the array.
-_.indexOf([1, 2, 3], 2);
+console.log('_.indexOf test: ' + _.indexOf([1, 2, 3], 2));
 //=> 1
 
 
