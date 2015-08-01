@@ -66,15 +66,45 @@ var _ = {
 	},
 	//sample - Produce a random sample from the list. Pass a number to return n random elements from the list. Otherwise 
 	//a single random item will be returned.
-	sample: 	function() {
+	sample: 	function(arr, num) {
+					var randomNum;
+					var testRandomNum;
+					var randomIndexNums = [];
+					var indexValueOfSample;
+					var sampleArray = [];
 
-	},
+					if (num === undefined || num === 1) {
+						//choose a random index value between 0 and the length of the array
+						randomNum = Math.floor(Math.random() * arr.length);
+						return arr[randomNum];
+					} else {
+						while (randomIndexNums.length < num) {
+							//create a test number to see if the randomNum is already in the sample index num array (randomIndexNums)
+							//need to re-declare the variable here so a new randomNum is generated each time through the while loop 
+							//due to bugs w/ hoisting randomNum if defined outside while loop
+							randomNum = Math.floor(Math.random() * arr.length);
+							testRandomNum = randomNum;
+							//call .indexOf function we made below to see if the randomNum is already in the sample randomIndexNums 
+							//array, if not, add randomNum to randomIndexNums array
+							if (this.indexOf(randomIndexNums, testRandomNum) === -1) {
+								randomIndexNums.push(randomNum);
+							}
+						}
+						//populate sample array by looping through the randomIndexNums array
+						for (var i = 0; i < num; i++) {
+							//pull index Value from randomIndexNums array to populate to return array w/ sample nums from arr
+							indexValueOfSample = randomIndexNums[i];
+							sampleArray.push(arr[indexValueOfSample]);
+						}
+						return sampleArray;
+					}
+				},
 	//difference - returns the values from array that are not present in the other array.
 	difference: 	function() {
 
 	},
 	//indexOf - Returns the index at which value can be found in the array, or -1 if value is not present in the array.
-	indexOf: 	function indexOf(arr, num) {
+	indexOf: 	function(arr, num) {
 					var foundNum = 0;
 
 					for (var i = 0; i < arr.length; i++) {
@@ -136,9 +166,9 @@ _.shuffle([1, 2, 3, 4, 5, 6]);
 
 //sample - Produce a random sample from the list. Pass a number to return n random elements from the list. Otherwise 
 //a single random item will be returned.`
-_.sample([1, 2, 3, 4, 5, 6]);
+console.log('_.sample test(no num): ' + _.sample([1, 2, 3, 4, 5, 6]));
 //=> 4
-_.sample([1, 2, 3, 4, 5, 6], 3);
+console.log('_.sample test: ' + _.sample([1, 2, 3, 4, 5, 6], 3));
 //=> [1, 6, 2]
 
 
