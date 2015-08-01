@@ -33,6 +33,7 @@ var _ = {
 			},
 	//max - returns the maximum value in an array
 	max: 	function(arr) {
+				//set maxNum to be at least the first # in the array
 				var maxNum = arr[0];
 
 				for (var i = 1; i < arr.length; i++) {
@@ -46,6 +47,7 @@ var _ = {
 			},
 	//min - returns the minimum value in an array
 	min: 	function(arr) {
+				//set minNum to be at least the first # in the array
 				var minNum = arr[0];
 
 				for (var i = 1; i < arr.length; i++) {
@@ -141,4 +143,4 @@ _.indexOf([1, 2, 3], 2);
 //pluck - extracts a list of property values and returns them in an array.
   var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
 _.pluck(stooges, 'name');
-//=> ["moe", "larry", "curly"] */
+//=> ["moe", "larry", "curly"]
