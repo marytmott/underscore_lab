@@ -100,29 +100,43 @@ var _ = {
 					}
 				},
 	//difference - returns the values from array that are not present in the other array.
-	difference: 	function() {
+	difference: 	function(arr1, arr2) {
+						var notFound = [];
 
-	},
+						for (var i = 0; i < arr2.length; i++) {
+							if (this.indexOf(arr1, arr2[i]) === -1) {
+								notFound.push(arr2[i]);
+							}
+						}
+						
+						return notFound; 
+					},
 	//indexOf - Returns the index at which value can be found in the array, or -1 if value is not present in the array.
-	indexOf: 	function(arr, num) {
-					var foundNum = 0;
+	indexOf: 	function(arr, value) {
+					var foundValue = 0;
 
 					for (var i = 0; i < arr.length; i++) {
-						if (arr[i] === num) {
+						if (arr[i] === value) {
 							return i;
 						} else {
 							continue;
 						}
 					}
 
-					if (foundNum === 0) {
+					if (foundValue === 0) {
 						return -1;
 					}
 				},
 	//pluck - extracts a list of property values and returns them in an array.
-	pluck: 	function() {
+	pluck: 	function(arr, keyName) {
+				var propVals = [];
 
-	}
+				for (var i = 0; i < arr.length; i++) {
+						propVals.push(arr[i][keyName]);		
+				}
+
+				return propVals;
+			}
 };
 
 //average - returns the average value in a given array
@@ -173,7 +187,7 @@ console.log('_.sample test: ' + _.sample([1, 2, 3, 4, 5, 6], 3));
 
 
 //difference - returns the values from array that are not present in the other array.
-_.difference([1, 2, 3, 4, 5], [5, 2, 10]);
+console.log("_.difference test: " + _.difference([1, 2, 3, 4, 5], [5, 2, 10]));
 //=> [1, 3, 4]
 
 
@@ -183,6 +197,6 @@ console.log('_.indexOf test: ' + _.indexOf([1, 2, 3], 2));
 
 
 //pluck - extracts a list of property values and returns them in an array.
-  var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
-_.pluck(stooges, 'name');
+var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+console.log("_.pluck test: " + _.pluck(stooges, 'name'));
 //=> ["moe", "larry", "curly"]
