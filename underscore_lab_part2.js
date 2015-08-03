@@ -2,16 +2,20 @@
 var _ = {
 	//each - iterates over an array and calls a given function with each element
 	each: function(arr, inputFunction) {
-
 				for (var i = 0; i < arr.length; i++) {
 					inputFunction(arr[i]);
 				}
-
 			},
 	//compact - returns a new array with all provided undefined values removed
-	compact: function() {
+	compact: function(arr) {
+				var noUndefined = [];
 
-
+				for (var i = 0; i < arr.length; i++) {
+					if (arr[i] !== undefined) {
+						noUndefined.push(arr[i]);
+					}
+				}
+				return noUndefined;
 	},
 	//map - returns a new array of values produced by running each element of 
 	//an array through a given function
@@ -31,11 +35,11 @@ var _ = {
 
 
 //each - iterates over an array and calls a given function with each element
-console.log("_.each test: ", ([1, 2, 3], alert));
+//_.each([1, 2, 3], alert);
 //=> alerts each number in turn...
 
 //compact - returns a new array with all provided undefined values removed
-_.compact([1, "hello", undefined, 3, undefined]);
+console.log('compact test: ', _.compact([1, "hello", undefined, 3, undefined]));
 //=> [1, "hello", 3]
 
 //map - returns a new array of values produced by running each element of an array through 
