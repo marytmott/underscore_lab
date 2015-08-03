@@ -132,7 +132,7 @@ var _ = {
 						for (var i = 0; i < arr1.length; i++) {
 							var testValue = arr1[i];
 
-							//go through 2nd loop to look for testValue
+							//go through 2nd array to look for testValue
 							for (var j = 0; j < arr2.length; j++) {
 								if (!this.contains(arr2, testValue)) {
 									notFound.push(testValue);
