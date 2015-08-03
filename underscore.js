@@ -128,13 +128,20 @@ var _ = {
 	difference: 	function(arr1, arr2) {
 						var notFound = [];
 
-						for (var i = 0; i < arr2.length; i++) {
-							if (this.indexOf(arr1, arr2[i]) === -1) {
-								notFound.push(arr2[i]);
+						//select a value in 1st array to see if it is in 2nd array
+						for (var i = 0; i < arr1.length; i++) {
+							var testValue = arr1[i];
+
+							//go through 2nd loop to look for testValue
+							for (var j = 0; j < arr2.length; j++) {
+								if (!this.contains(arr2, testValue)) {
+									notFound.push(testValue);
+									break;
+								}
 							}
+
 						}
-						
-						return notFound; 
+						return notFound;
 					},
 	//indexOf - Returns the index at which value can be found in the array, or -1 if value is not present in the array.
 	indexOf: 	function(arr, value) {
