@@ -61,9 +61,34 @@ var _ = {
 			},
 	//shuffle - Returns a shuffled copy of the list, using a version of the Fisher-Yates shuffle. Don't worry 
 	//about implementing that exact shuffle alogrithm. Start by creating your own simple shuffle.
-	shuffle: 	function() {
+	shuffle: 	function(arr) {
+					var randomNum;
+					var testRandomNum;
+					var randomIndexNums = [];
+					var indexValueOfSample;
+					var sampleArray = [];
 
-	},
+					
+						while (randomIndexNums.length < arr.length) {
+							//create a test number to see if the randomNum is already in the sample index num array (randomIndexNums)
+							//need to re-declare the variable here so a new randomNum is generated each time through the while loop 
+							//due to bugs w/ hoisting randomNum if defined outside while loop
+							randomNum = Math.floor(Math.random() * arr.length);
+							testRandomNum = randomNum;
+							//call .indexOf function we made below to see if the randomNum is already in the sample randomIndexNums 
+							//array, if not, add randomNum to randomIndexNums array
+							if (this.indexOf(randomIndexNums, testRandomNum) === -1) {
+								randomIndexNums.push(randomNum);
+							}
+						}
+						//populate sample array by looping through the randomIndexNums array
+						for (var i = 0; i < arr.length; i++) {
+							//pull index Value from randomIndexNums array to populate to return array w/ sample nums from arr
+							indexValueOfSample = randomIndexNums[i];
+							sampleArray.push(arr[indexValueOfSample]);
+						}
+						return sampleArray;
+				},
 	//sample - Produce a random sample from the list. Pass a number to return n random elements from the list. Otherwise 
 	//a single random item will be returned.
 	sample: 	function(arr, num) {
@@ -174,7 +199,7 @@ console.log('_.min test: ' + _.min(numbers));
 
 //shuffle - Returns a shuffled copy of the list, using a version of the Fisher-Yates shuffle. Don't worry 
 //about implementing that exact shuffle alogrithm. Start by creating your own simple shuffle.
-_.shuffle([1, 2, 3, 4, 5, 6]);
+console.log('_.shuffle test: ' + _.shuffle([1, 2, 3, 4, 5, 6]));
 //=> [4, 1, 6, 3, 5, 2]
 
 
