@@ -29,11 +29,17 @@ var _ = {
 			},
 	//filter - Looks through each value in the list, returning an array of all the values 
 	//that pass a truth test
-	filter: 	function() {
+	filter: 	function(arr, inputFunction) {
+					var areTrue = [];
 
+						for (var i = 0; i < arr.length; i++) {
+							if (inputFunction(arr[i])) {
+								areTrue.push(arr[i]);
+							}
+						}
+					return areTrue;
 				}
-
-}
+};
 
 //each - iterates over an array and calls a given function with each element
 //_.each([1, 2, 3], alert);
@@ -53,4 +59,5 @@ console.log('_.map test: ', _.map(["dogs", "before", "cats"], function(str){ ret
 //filter - Looks through each value in the list, returning an array of all the values 
 //that pass a truth test
 var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+console.log("_.filter test: " + evens);
 //=> [2, 4, 6]
